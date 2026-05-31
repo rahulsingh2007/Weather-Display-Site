@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image.png" type="image/x-icon">
+</head>
+
+<body>
+    <h1 id="myH1">Weather Dashboard</h1>
+    <p id="myDesc">Your daily weather forecast at a glance</p>
+    <form class="weatherForm">
+        <div class="search-container">
+            <input type="text" class="cityInput" placeholder="Search for a city... (e.g., Kathmandu, Tokyo)">
+            <button id="myButton" type="submit">🔍︎ Search</button>
+        </div>
+    </form>
+    <div class="card">
+        <div class="right">
+            <p id="cityDisplay"></p>
+            <p id="tempDisplay"></p>
+            <p id="descDisplay"></p>
+        </div>
+        <div class="left">
+            <p id="weatherEmoji"></p>
+        </div>
+    </div>
+    <div class="details">
+        <div class="humidityDisplay">
+            <p>Humididty</p>
+            <p id="humidityDisplay"></p>
+        </div>
+        <div class="windDisplay">
+            <p>Wind Speed</p>
+            <p id="windDisplay"></p>
+        </div>
+        <div class="visibilityDisplay">
+            <p>Visibility</p>
+            <p id="visibilityDisplay"></p>
+        </div>
+        <div class="pressureDisplay">
+            <p>Pressure</p>
+            <p id="pressureDisplay"></p>
+        </div>
+        <div class="sunriseDisplay">
+            <p>Sunrise</p>
+            <p id="sunriseDisplay"></p>
+        </div>
+        <div class="sunsetDisplay">
+            <p>Sunset</p>
+            <p id="sunsetDisplay"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

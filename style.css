@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: hsl(208, 100%, 97%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#myH1 {
+    margin-top: 20px;
+    font-weight: 550;
+}
+
+#myDesc {
+    margin-top: 15px;
+    font-size: 13.5px;
+    color: grey;
+}
+
+.search-container {
+    margin-top: 25px;
+    width: 40vw;
+    height: calc(2vh + 20px);
+    border: 2px solid white;
+    border-radius: 50vh;
+    padding: 5px;
+    box-shadow: 5px 3px 5px hsl(0, 0%, 89%);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cityInput {
+    width: 40vw;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 15px;
+    /* Shifts text away from left edge */
+}
+
+#myButton {
+    padding: 9px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(to right, hsl(240, 100%, 80%), hsl(300, 100%, 80%));
+    width: 100px;
+    flex-shrink: 0;
+    /* Prevents the button from squeezing or distorting */
+    cursor: pointer;
+}
+
+#myButton:hover {
+    background: linear-gradient(to right, hsl(240, 100%, 70%), hsl(300, 100%, 70%));
+}
+
+.card {
+    margin-top: 25px;
+    background-color: hsl(225, 95%, 60%);
+    color: white;
+    border-radius: 18px;
+    padding: 30px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cityDisplay {
+    font-size: 14px;
+}
+
+#tempDisplay {
+    margin-top: 15px;
+    font-size: 4rem;
+}
+
+#desc {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.5rem;
+}
+
+.details {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.humidityDisplay,
+.windDisplay,
+.visibilityDisplay,
+.pressureDisplay,
+.sunriseDisplay,
+.sunsetDisplay {
+    width: 18vw;
+    padding: 22px;
+    background-color: white;
+    box-shadow: 5px 3px 5px hsl(0, 0%, 89%);
+    border-radius: 15px;
+}
+
+#humidityDisplay,
+#windDisplay,
+#visibilityDisplay,
+#pressureDisplay,
+#sunriseDisplay,
+#sunsetDisplay {
+    font-size: 1.4rem;
+}
