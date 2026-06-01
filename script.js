@@ -31,16 +31,20 @@ async function getWeatherData(city) {
 
 function displayWeatherInfo(data) {
     const { name: city,
-        main: { temp, humidity, pressure },
+        main: { temp, humidity, pressure, feels_like},
         weather: [{ description, id }],
         wind: { speed },
+        sys: {country, sunrise, sunset},
         visibility } = data;
-
+    console.log(data);
     const cityDisplay = document.getElementById(`cityDisplay`);;
-    cityDisplay.textContent = city;
+    cityDisplay.textContent = `${city}, ${country}`;
 
     const tempDisplay = document.getElementById(`tempDisplay`);
     tempDisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
+
+    const feelsLikeDisplay = document.getElementById(`feels_like`);
+    feelsLikeDisplay.textContent = `Feels like: ${(feels_like - 273.15).toFixed(1)}°C`;
 
     const humidityDisplay = document.getElementById(`humidityDisplay`);
     humidityDisplay.textContent = `${humidity} %`;
@@ -102,7 +106,7 @@ function getWeatherEmoji(weatherId) {
             return "☀️";
             break;
         case (weatherId > 800):
-            return "☁️";
+            return "⛅";
             break;
         default:
             return "❓"

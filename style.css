@@ -14,11 +14,12 @@ body {
 #myH1 {
     margin-top: 20px;
     font-weight: 550;
+    font-size: clamp(1.25rem, 5vw, 2.2rem);
 }
 
 #myDesc {
     margin-top: 15px;
-    font-size: 13.5px;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
     color: grey;
 }
 
@@ -42,6 +43,7 @@ body {
     outline: none;
     background: transparent;
     padding-left: 15px;
+    font-size: clamp(0.9rem, 1vw, 1rem);
     /* Shifts text away from left edge */
 }
 
@@ -51,6 +53,7 @@ body {
     border-radius: 20px;
     color: white;
     font-weight: bold;
+    font-size: clamp(0.8rem, 1vw, 1rem);            
     background: linear-gradient(to right, hsl(240, 100%, 80%), hsl(300, 100%, 80%));
     width: 100px;
     flex-shrink: 0;
@@ -62,52 +65,58 @@ body {
     background: linear-gradient(to right, hsl(240, 100%, 70%), hsl(300, 100%, 70%));
 }
 
+.weather-container {
+    width: 60%;
+}
+
 .card {
+    width: 100%;
+    box-sizing: border-box;
     margin-top: 25px;
-    background-color: hsl(225, 95%, 60%);
+    background: linear-gradient(to bottom right, hsl(225, 95%, 60%), hsl(39, 100%, 70%));
     color: white;
     border-radius: 18px;
     padding: 30px;
-    width: 60%;
     display: flex;
     justify-content: space-between;
 }
 
 #cityDisplay {
-    font-size: 14px;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
 }
 
 #tempDisplay {
     margin-top: 15px;
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem);
 }
 
 #desc {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: clamp(0.75rem, 1vw, 0.95rem);
 }
 
 .left {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 9vw, 4.5rem);
 }
 
 .details {
-    margin-top: 20px;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    box-sizing: border-box;
 }
-
 .humidityDisplay,
 .windDisplay,
 .visibilityDisplay,
 .pressureDisplay,
 .sunriseDisplay,
 .sunsetDisplay {
-    width: 18vw;
+    width: 100%;
+    box-sizing: border-box;
     padding: 22px;
     background-color: white;
     box-shadow: 5px 3px 5px hsl(0, 0%, 89%);
@@ -120,5 +129,27 @@ body {
 #pressureDisplay,
 #sunriseDisplay,
 #sunsetDisplay {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+@media (max-width: 1025px) {
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-container {
+        width: 80%;
+        max-width: 600px;
+        height: auto;
+    }
+
+    .cityInput {
+        width: 100%;
+    }
+
+    #myButton {
+        width: 90px;
+        font-size: 0.9rem;
+    }
+
 }
