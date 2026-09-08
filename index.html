@@ -20,19 +20,20 @@
     </form>
     <div class="weather-container">
         <div class="card">
-            <div class="right">
+            <p class="errorDisplay" id="errorDisplay" style="display: none;"></p>
+            <div class="right" id="cardRight">
                 <p id="cityDisplay"></p>
                 <p id="tempDisplay"></p>
                 <p id="feels_like"></p>
                 <p id="descDisplay"></p>
             </div>
-            <div class="left">
+            <div class="left" id="cardLeft">
                 <p id="weatherEmoji"></p>
             </div>
         </div>
         <div class="details">
             <div class="humidityDisplay">
-                <p>💧 Humididty</p>
+                <p>💧 Humidity</p>
                 <p id="humidityDisplay"></p>
             </div>
             <div class="windDisplay">

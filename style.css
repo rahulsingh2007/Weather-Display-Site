@@ -23,76 +23,115 @@ body {
     color: grey;
 }
 
+.weatherForm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .search-container {
     margin-top: 25px;
-    width: 40vw;
-    height: calc(2vh + 20px);
+    width: 90%;
+    max-width: 650px;
+    min-height: 52px;
     border: 2px solid white;
-    border-radius: 50vh;
-    padding: 5px;
-    box-shadow: 5px 3px 5px hsl(0, 0%, 89%);
+    border-radius: 50px;
+    padding: 6px 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .cityInput {
-    width: 40vw;
+    flex: 1;
     border: none;
     outline: none;
     background: transparent;
     padding-left: 15px;
     font-size: clamp(0.9rem, 1vw, 1rem);
-    /* Shifts text away from left edge */
 }
 
 #myButton {
-    padding: 9px;
+    padding: 10px 18px;
     border: none;
-    border-radius: 20px;
+    border-radius: 25px;
     color: white;
     font-weight: bold;
-    font-size: clamp(0.8rem, 1vw, 1rem);            
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
     background: linear-gradient(to right, hsl(240, 100%, 80%), hsl(300, 100%, 80%));
-    width: 100px;
     flex-shrink: 0;
-    /* Prevents the button from squeezing or distorting */
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 #myButton:hover {
     background: linear-gradient(to right, hsl(240, 100%, 70%), hsl(300, 100%, 70%));
 }
 
+#myButton:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
 .weather-container {
-    width: 60%;
+    width: 90%;
+    max-width: 650px;
+    margin-bottom: 40px;
+    display: none;
 }
 
 .card {
     width: 100%;
     box-sizing: border-box;
     margin-top: 25px;
+    margin-bottom: 15px;
     background: linear-gradient(to bottom right, hsl(225, 95%, 60%), hsl(39, 100%, 70%));
     color: white;
     border-radius: 18px;
     padding: 30px;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.25);
+    transition: all 0.3s ease;
+}
+
+.card.error-card {
+    background: linear-gradient(to bottom right, hsl(350, 80%, 58%), hsl(25, 90%, 60%));
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.25);
+    justify-content: center;
+}
+
+.errorDisplay {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 0;
+    line-height: 1.5;
 }
 
 #cityDisplay {
-    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+    font-weight: 500;
 }
 
 #tempDisplay {
     margin-top: 15px;
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(2rem, 8vw, 3.8rem);
+    font-weight: 700;
 }
 
-#desc {
+#feels_like {
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    opacity: 0.9;
+}
+
+#descDisplay {
     margin-top: 8px;
-    font-size: clamp(0.75rem, 1vw, 0.95rem);
+    font-size: clamp(0.85rem, 1vw, 1rem);
+    text-transform: capitalize;
 }
 
 .left {
@@ -106,9 +145,10 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
     box-sizing: border-box;
 }
+
 .humidityDisplay,
 .windDisplay,
 .visibilityDisplay,
@@ -117,10 +157,21 @@ body {
 .sunsetDisplay {
     width: 100%;
     box-sizing: border-box;
-    padding: 22px;
+    padding: 20px;
     background-color: white;
-    box-shadow: 5px 3px 5px hsl(0, 0%, 89%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
+}
+
+.humidityDisplay p:first-child,
+.windDisplay p:first-child,
+.visibilityDisplay p:first-child,
+.pressureDisplay p:first-child,
+.sunriseDisplay p:first-child,
+.sunsetDisplay p:first-child {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 6px;
 }
 
 #humidityDisplay,
@@ -129,27 +180,23 @@ body {
 #pressureDisplay,
 #sunriseDisplay,
 #sunsetDisplay {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    color: #1e293b;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 768px) {
     .details {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .search-container {
-        width: 80%;
-        max-width: 600px;
-        height: auto;
+@media (max-width: 480px) {
+    .details {
+        grid-template-columns: 1fr;
     }
 
-    .cityInput {
-        width: 100%;
+    .card {
+        padding: 22px;
     }
-
-    #myButton {
-        width: 90px;
-        font-size: 0.9rem;
-    }
-
 }
