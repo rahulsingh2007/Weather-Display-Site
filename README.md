@@ -16,6 +16,13 @@
 
 ---
 
+## 🌐 Live Demo
+
+The project is live right now! Check it out here:
+👉 [weatherdisplay-js.netlify.app](https://weatherdisplay-js.netlify.app/)
+
+---
+
 ## 📖 About
 
 The **Weather Dashboard** is a lightweight, modern web application built using pure Vanilla JavaScript, HTML5, and CSS3. It empowers users to search for real-time weather conditions in any city across the globe via the OpenWeatherMap API.
